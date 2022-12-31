@@ -51,7 +51,10 @@ firthGP <- function(formula, data = parent.frame(), alpha=0.05){
     return(-sum(logli) - penal)
   }
 
-  fit.full <- optim(par=rep(0, k+1), fn=logLikfull, y=y, x=x, method="BFGS", hessian=T)
+  suppressWarnings(
+    fit.full <- optim(par=rep(0, k+1), fn=logLikfull, y=y, x=x, method="BFGS", hessian=T)
+  )
+
 
 
   #fit.null <- optim(par=0, fn=logLiknull, method="BFGS", hessian=T)
@@ -77,12 +80,13 @@ firthGP <- function(formula, data = parent.frame(), alpha=0.05){
 
 
   row.names(est.swM) <- c(xnames, "delta")
-  attr(fit, "class") <- c("poison")
-  fit$call <- call
-  fit$formula <- as.vector(attr(Terms, "formula"))
-  fit$contrasts <- attr(x, "contrasts")
-  fit$coefficients <- est.swM
-  fit$coefficients
+
+  fit1 <- list()
+  attr(fit1, "class") <- c("poison")
+  fit1$call <- call
+  fit1$coefficients <- est.swM[xnames,]
+  fit1$dispersion <- est.swM["delta",]
+  fit1
 }
 
 
