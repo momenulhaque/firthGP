@@ -1,14 +1,14 @@
 Package: firthGP
-Title: Estimate generalized Poisson regression model for count data where the data has separation, quasi separation or near to quasi separation problem
+Title: Estimate generalized Poisson regression model for separated or near-to-separated count data 
 Version: 0.1.0
 Authors@R: 
     person("Momenul Haque", "Mondol", , "mmondol@isrt.ac.bd", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: Estimate generalized Poisson regression model for count data where the data has separation,  quasi separation or near to quasi separation problem
+Description: Estimate generalized Poisson regression model for count data where the data has separation,  quasi separation or near to quasi separation problem.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.2
+RoxygenNote: 7.2.3
 Depends: 
     R (>= 2.10)
 LazyData: true
